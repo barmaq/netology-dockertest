@@ -1,0 +1,297 @@
+mkdir -p /tmp/netology/docker/task5
+barmaq@ubuntu-test:~/test4$ cd /tmp/netology/docker/task5
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano docker-compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose up -d
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 12/12
+ ✔ portainer Pulled                                                                                                                                                                                                                    12.2s
+   ✔ 2a8c27161aa3 Pull complete                                                                                                                                                                                                         0.5s
+   ✔ 679061c2c821 Pull complete                                                                                                                                                                                                         0.5s
+   ✔ d40df14c1d7a Pull complete                                                                                                                                                                                                         3.8s
+   ✔ 8215717c7c10 Pull complete                                                                                                                                                                                                         7.2s
+   ✔ 542669febe7c Pull complete                                                                                                                                                                                                         7.5s
+   ✔ 6c27c7f45b54 Pull complete                                                                                                                                                                                                         8.2s
+   ✔ 070d3bf2528e Pull complete                                                                                                                                                                                                         8.3s
+   ✔ 846480e9f8b0 Pull complete                                                                                                                                                                                                         9.2s
+   ✔ c7053d7d4c2a Pull complete                                                                                                                                                                                                         9.4s
+   ✔ a2ed6de7fb5f Pull complete                                                                                                                                                                                                         9.4s
+   ✔ 4f4fb700ef54 Pull complete                                                                                                                                                                                                         9.4s
+[+] Running 2/1
+ ✔ Container task5-portainer-1                                          Started                                                                                                                                                         0.2s
+ ! portainer Published ports are discarded when using host network mode                                                                                                                                                                 0.0s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose down
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 1/0
+ ✔ Container task5-portainer-1  Removed                                                                                                                                                                                                 0.1s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose up -d
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 6/6
+ ✔ registry Pulled                                                                                                                                                                                                                      3.9s
+   ✔ 1cc3d825d8b2 Pull complete                                                                                                                                                                                                         1.2s
+   ✔ 85ab09421e5a Pull complete                                                                                                                                                                                                         1.7s
+   ✔ 40960af72c1c Pull complete                                                                                                                                                                                                         1.8s
+   ✔ e7bb1dbb377e Pull complete                                                                                                                                                                                                         1.8s
+   ✔ a538cc9b1ae3 Pull complete                                                                                                                                                                                                         2.0s
+[+] Running 4/4
+ ✔ Container task5-registry-1                                           Started                                                                                                                                                         0.2s
+ ✔ Container task5-portainer-1                                          Started                                                                                                                                                         0.2s
+ ! registry Published ports are discarded when using host network mode                                                                                                                                                                  0.0s
+ ! portainer Published ports are discarded when using host network mode                                                                                                                                                                 0.0s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS     NAMES
+b2b76af6e8af   registry:2                      "/entrypoint.sh /etc…"   2 minutes ago   Up 2 minutes             task5-registry-1
+3a73dc152739   portainer/portainer-ce:latest   "/portainer"             2 minutes ago   Up 2 minutes             task5-portainer-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ tenet 5000
+
+Command 'tenet' not found, did you mean:
+
+  command 'telnet' from deb telnet (0.17-41.2build1)
+  command 'telnet' from deb telnet-ssl (0.17.41+0.2-3.2build1)
+  command 'telnet' from deb inetutils-telnet (2:1.9.4-11ubuntu0.2)
+
+Try: sudo apt install <deb name>
+
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ telnet 5000
+Trying 0.0.19.136...
+^]^C
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ telnet 9000
+Trying 0.0.35.40...
+^]q
+^C
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ curl https://127.0.0.1:9000
+curl: (35) error:1408F10B:SSL routines:ssl3_get_record:wrong version number
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker stop task5-*
+Error response from daemon: No such container: task5-*
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker stop task5**
+Error response from daemon: No such container: task5**
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker stop task5*
+Error response from daemon: No such container: task5*
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker stop task5-registry-1
+task5-registry-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker stop task5-portainer-1
+task5-portainer-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ nano docker-compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose down
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 2/0
+ ✔ Container task5-portainer-1  Removed                                                                                                                                                                                                 0.0s
+ ✔ Container task5-registry-1   Removed                                                                                                                                                                                                 0.0s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose up
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 3/3
+ ✔ Network task5_default        Created                                                                                                                                                                                                 0.0s
+ ✔ Container task5-registry-1   Created                                                                                                                                                                                                 0.1s
+ ✔ Container task5-portainer-1  Created                                                                                                                                                                                                 0.1s
+Attaching to portainer-1, registry-1
+registry-1   | time="2024-10-27T12:02:13.739840904Z" level=warning msg="No HTTP secret provided - generated random secret. This may cause problems with uploads if multiple registries are behind a load-balancer. To provide a shared secret, fill in http.secret in the configuration file or set the REGISTRY_HTTP_SECRET environment variable." go.version=go1.20.8 instance.id=276f95fc-5a78-4f6f-b46f-ef3dce9c703c service=registry version=2.8.3
+registry-1   | time="2024-10-27T12:02:13.739883804Z" level=info msg="redis not configured" go.version=go1.20.8 instance.id=276f95fc-5a78-4f6f-b46f-ef3dce9c703c service=registry version=2.8.3
+registry-1   | time="2024-10-27T12:02:13.739931605Z" level=info msg="Starting upload purge in 40m0s" go.version=go1.20.8 instance.id=276f95fc-5a78-4f6f-b46f-ef3dce9c703c service=registry version=2.8.3
+registry-1   | time="2024-10-27T12:02:13.739947505Z" level=info msg="using inmemory blob descriptor cache" go.version=go1.20.8 instance.id=276f95fc-5a78-4f6f-b46f-ef3dce9c703c service=registry version=2.8.3
+registry-1   | time="2024-10-27T12:02:13.740108906Z" level=info msg="listening on [::]:5000" go.version=go1.20.8 instance.id=276f95fc-5a78-4f6f-b46f-ef3dce9c703c service=registry version=2.8.3
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:370 > encryption key file not present | filename=portainer
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:393 > proceeding without encryption key |
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/database/boltdb/db.go:125 > loading PortainerDB | filename=portainer.db
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/internal/ssl/ssl.go:80 > no cert files found, generating self signed SSL certificates |
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/chisel/service.go:228 > generated a new Chisel private key file | private-key=/data/chisel/private-key.pem
+portainer-1  | 2024/10/27 12:02:13 server: Reverse tunnelling enabled
+portainer-1  | 2024/10/27 12:02:13 server: Fingerprint iEKyIXBitubcB0L+YyyAymm18DLhddU6zdCxiAj7ChQ=
+portainer-1  | 2024/10/27 12:02:13 server: Listening on http://0.0.0.0:8000
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:655 > starting Portainer | build_number=120 go_version=go1.21.13 image_tag=linux-amd64-2.21.4 nodejs_version=18.20.4 version=2.21.4 webpack_version=5.88.2 yarn_version=1.22.22
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/http/server.go:370 > starting HTTPS server | bind_address=:9443
+portainer-1  | 2024/10/27 12:02PM INF github.com/portainer/portainer/api/http/server.go:354 > starting HTTP server | bind_address=:9000
+^CGracefully stopping... (press Ctrl+C again to force)
+[+] Stopping 2/2
+ ✔ Container task5-registry-1   Stopped                                                                                                                                                                                                 0.2s
+ ✔ Container task5-portainer-1  Stopped                                                                                                                                                                                                 0.2s
+canceled
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose up -d
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 2/2
+ ✔ Container task5-registry-1   Started                                                                                                                                                                                                 0.3s
+ ✔ Container task5-portainer-1  Started                                                                                                                                                                                                 0.3s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ ^C
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker image
+
+Usage:  docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker image list
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+barmaq/custom-nginx      1.0.0     4dd2d5feb4a2   2 hours ago     133MB
+portainer/portainer-ce   latest    3c6403908069   2 days ago      302MB
+debian                   latest    617f2e89852e   10 days ago     117MB
+registry                 2         75ef5b734af4   13 months ago   25.4MB
+centos                   latest    5d0da3dc9764   3 years ago     231MB
+nginx                    1.21.1    822b7ec2aaf2   3 years ago     133MB
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker tag barmaq/custom-nginx:1.0.0 localhost:5000/custom-nginx:latest
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker push localhost:5000/custom-nginx:latest
+The push refers to repository [localhost:5000/custom-nginx]
+edab8ea968e8: Pushed
+d47e4d19ddec: Pushed
+8e58314e4a4f: Pushed
+ed94af62a494: Pushed
+875b5b50454b: Pushed
+63b5f2c0d071: Pushed
+d000633a5681: Pushed
+latest: digest: sha256:75ae36496e665153f4ea288f172ba2194f1811477a90f02a5f3535e9b841f102 size: 1777
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ ls
+compose.yaml  docker-compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ mv compose.yaml /tmp/netology/docker/compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker up -d^C
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose up -d
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] Found orphan containers ([task5-portainer-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+[+] Running 1/0
+ ✔ Container task5-registry-1  Running                                                                                                                                                                                                  0.0s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker -ps
+unknown shorthand flag: 'p' in -ps
+See 'docker --help'.
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Authenticate to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default "/home/barmaq/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info", "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/home/barmaq/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/home/barmaq/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/home/barmaq/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+e10725745dbf   127.0.0.1:5000/custom-nginx     "/docker-entrypoint.…"   5 minutes ago    Up 5 minutes    0.0.0.0:9090->80/tcp, [::]:9090->80/tcp                         custom-nginx-nginx-1
+768d772f488e   portainer/portainer-ce:latest   "/portainer"             13 minutes ago   Up 13 minutes   8000/tcp, 9443/tcp, 0.0.0.0:9000->9000/tcp, :::9000->9000/tcp   task5-portainer-1
+ec886c2265af   registry:2                      "/entrypoint.sh /etc…"   13 minutes ago   Up 13 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp                       task5-registry-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose down
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 2/1
+ ✔ Container task5-registry-1  Removed                                                                                                                                                                                                  0.2s
+ ! Network task5_default       Resource is still in use                                                                                                                                                                                 0.0s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+e10725745dbf   127.0.0.1:5000/custom-nginx     "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes    0.0.0.0:9090->80/tcp, [::]:9090->80/tcp                         custom-nginx-nginx-1
+768d772f488e   portainer/portainer-ce:latest   "/portainer"             14 minutes ago   Up 14 minutes   8000/tcp, 9443/tcp, 0.0.0.0:9000->9000/tcp, :::9000->9000/tcp   task5-portainer-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+e10725745dbf   127.0.0.1:5000/custom-nginx     "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes    0.0.0.0:9090->80/tcp, [::]:9090->80/tcp                         custom-nginx-nginx-1
+768d772f488e   portainer/portainer-ce:latest   "/portainer"             14 minutes ago   Up 14 minutes   8000/tcp, 9443/tcp, 0.0.0.0:9000->9000/tcp, :::9000->9000/tcp   task5-portainer-1
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ mv /tmp/netology/docker/compose.yaml /tmp/netology/docker/task5/compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ ls
+compose.yaml  docker-compose.yaml
+barmaq@ubuntu-test:/tmp/netology/docker/task5$ docker compose down
+WARN[0000] Found multiple config files with supported names: /tmp/netology/docker/task5/compose.yaml, /tmp/netology/docker/task5/docker-compose.yaml
+WARN[0000] Using /tmp/netology/docker/task5/compose.yaml
+WARN[0000] /tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] /tmp/netology/docker/task5/compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 2/2
+ ✔ Container task5-portainer-1  Removed                                                                                                                                                                                                 0.2s
+ ✔ Network task5_default        Removed                                                                                                                                                                                                 0.1s
+barmaq@ubuntu-test:/tmp/netology/docker/task5$
