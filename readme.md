@@ -1,3 +1,5 @@
+вывод из консоли и скриншоты в расположенных рядом файлах
+
 ---------------------------------------------------------
 задание 1
 
@@ -123,7 +125,7 @@ docker tag barmaq/custom-nginx:1.0.0 localhost:5000/custom-nginx:latest
 docker push localhost:5000/custom-nginx:latest
 
 настрйока портейнер
-пароль ufj547GYU458fjd3
+пароль xxxxxxxxxxxx ( заменен)
 
 mv compose.yaml /tmp/netology/docker/compose.yaml
 docker compose up -d
