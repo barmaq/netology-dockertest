@@ -8,14 +8,7 @@ docker pull nginx:1.21.1
 mkdir nginx_custom
 cd nginx_custom
 nano index.html
-	<html>
-	<head>
-	Hey, Netology
-	</head>
-	<body>
-	<h1>I will be DevOps Engineer!</h1>
-	</body>
-	</html>
+	вставляем предложенное содержимое. не привожу чтобы не повыставлять заголовков в файле.
 nano dockerfile
 	FROM nginx:1.21.1
 	COPY index.html /usr/share/nginx/html/index.html
@@ -46,15 +39,9 @@ PGh0bWw+CjxoZWFkPgpIZXksIE5ldG9sb2d5CjwvaGVhZD4KPGJvZHk+CjxoMT5JIHdpbGwgYmUg
 RGV2T3BzIEVuZ2luZWVyITwvaDE+CjwvYm9keT4KPC9odG1sPgo=
 
 curl 127.0.0.1 8080
-	<html>
-	<head>
-	Hey, Netology
-	</head>
-	<body>
-	<h1>I will be DevOps Engineer!</h1>
-	</body>
-	</html>
 
+	Hey, Netology
+	I will be DevOps Engineer!
 
 
 --------------------------------------------------------
